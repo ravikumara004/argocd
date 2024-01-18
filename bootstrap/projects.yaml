@@ -10,7 +10,7 @@ spec:
       repoURL: https://github.com/ravikumara004/sample_test_repo.git
       revision: main
       directories:
-        - path: '**bootstrap/projects/**'
+        - path: bootstrap/functional/*
   template:
     metadata:
       name: 'appset-functional'
