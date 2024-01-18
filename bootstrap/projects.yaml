@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: functional
+  labels:
+    env: root
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/ravikumara004/sample_test_repo.git
+      revision: main
+      directories:
+        - path: '**bootstrap/projects/**'
+  template:
+    metadata:
+      name: 'appset-functional'
+      labels:
+        env: root
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/ravikumara004/sample_test_repo.git
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        name: in-cluster
+        namespace: guestbook
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
