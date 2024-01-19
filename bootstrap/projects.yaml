@@ -10,7 +10,7 @@ spec:
       repoURL: https://github.com/ravikumara004/argocd.git
       revision: main
       directories:
-        - path: bootstrap/projects/functional*
+        - path: bootstrap/projects/functional/*
   template:
     metadata:
       name: 'appset-functional'
