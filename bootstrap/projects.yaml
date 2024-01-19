@@ -13,7 +13,7 @@ spec:
         - path: bootstrap/projects/functional/*
   template:
     metadata:
-      name: 'appset-functional'
+      name: '{{path.basename}}-appset-functional'
       labels:
         env: root
     spec:
